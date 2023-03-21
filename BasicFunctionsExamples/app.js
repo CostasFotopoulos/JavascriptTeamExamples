@@ -1,14 +1,16 @@
+import { getCookie, setCookie, eraseCookie } from "./helpers.js"
 // window.onload = (() => {
 //     alert('load')
 // })
 
+// DOM methods
 let container = document.getElementById('container')
 console.log(container)
 
 let paragraphs = container.getElementsByClassName('paragraph')
 console.warn(paragraphs)
 
-
+// NODE methods
 let testArray = ['One', 'Two', 'Three']
 let debug = container.getElementsByTagName('pre')[0]
 debug.innerHTML = testArray
@@ -29,6 +31,7 @@ let button = container.getElementsByTagName('button')[0]
 button.setAttribute('content', 'Click me')
 button.textContent = 'Click me'
 
+// Event methods
 let counter = 0
 
 button.addEventListener('click', () => {
@@ -39,6 +42,7 @@ button.addEventListener('click', () => {
         button.classList.remove('class_3')
         button.classList.remove('class_4')
     }
+    setCookie('ppkcookie','testcookie',7);
     setTimeout(() => {
         console.log("this is the first message");
       }, 5000);
@@ -87,13 +91,24 @@ button.addEventListener('mouseout', () => {
     button.classList.remove('class_hover')
 })
 
+let formaela = document.getElementById('formaela')
+
+formaela.addEventListener('submit', (e) => {
+    e.preventDefault()
+    let value = document.getElementById('var').value
+    sessionStorage.setItem('form-data', value)
+    
+    location.href = './form_submit.html'
+})
+
 let form = document.getElementById('formaela1')
 form.addEventListener('submit', (e) => {
     e.preventDefault()
+    var x = getCookie('ppkcookie');
     let input = document.getElementById('var1')
     let debug = document.getElementById('debug')
     let value = input.value
-    debug.innerHTML = value
+    debug.innerHTML = x
     input.value = ""
 })
 
