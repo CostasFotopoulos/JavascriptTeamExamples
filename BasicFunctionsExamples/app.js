@@ -3,6 +3,8 @@ import { getCookie, setCookie, eraseCookie } from "./helpers.js"
 //     alert('load')
 // })
 
+// Comment for commit
+
 // DOM methods
 let container = document.getElementById('container')
 console.log(container)
