@@ -6,15 +6,21 @@ import { getCookie, setCookie, eraseCookie } from "./helpers.js"
 // DOM methods
 let container = document.getElementById('container')
 console.log(container)
-
-let paragraphs = container.getElementsByClassName('paragraph')
-console.warn(paragraphs)
+let parent = container.offsetParent;
+console.log(parent)
+//let paragraphs = container.getElementsByClassName('paragraph')
+//console.warn(paragraphs)
+let paragraphs = document.querySelectorAll('.paragraph')
+console.log(paragraphs)
+for(let i = 0; i<paragraphs.length; i++){
+    console.log(paragraphs[i])
+}
 
 // NODE methods
 let testArray = ['One', 'Two', 'Three']
 let debug = container.getElementsByTagName('pre')[0]
 debug.innerHTML = testArray
-console.log(debug)
+//console.log(debug)
 
 let newDiv = document.createElement('div', {is: "test"})
 let newTextNode = document.createTextNode('Hi there')
@@ -103,6 +109,7 @@ formaela.addEventListener('submit', (e) => {
 
 let form = document.getElementById('formaela1')
 form.addEventListener('submit', (e) => {
+console.log(e)
     e.preventDefault()
     var x = getCookie('ppkcookie');
     let input = document.getElementById('var1')
